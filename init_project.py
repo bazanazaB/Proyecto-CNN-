@@ -1,46 +1,35 @@
 import os
 
+# ==============================
+# CARPETAS DEL PROYECTO
+# ==============================
 folders = [
-    "data/raw/tortuga",
-    "data/raw/catarina",
-    "data/raw/hormiga",
-    "data/raw/gato",
-    "data/raw/perro",
-
-    "data/processed/train",
-    "data/processed/val",
-    "data/processed/test",
+    "data",
+    "data/processed",          # raw se genera con downloader.py
 
     "notebooks",
 
     "src/data",
-    "src/models",
     "src/training",
-    "src/evaluation",
 
     "models",
-    "results"
+
+    "test"                     # para predict.py
 ]
 
+# ==============================
+# ARCHIVOS DEL PROYECTO
+# ==============================
 files = [
     "notebooks/CNNriesgo.ipynb",
-
-    "src/config.py",
 
     "src/data/downloader.py",
     "src/data/preprocess.py",
     "src/data/split.py",
 
-    "src/models/cnn_model.py",
-
     "src/training/train.py",
 
-    "src/evaluation/evaluate.py",
-
-    "src/predict.py",
-
-    "models/best_model.h5",
-    "results/metrics.txt",
+    "test/predict.py",
 
     "requirements.txt",
     ".env",
@@ -48,6 +37,9 @@ files = [
     "README.md"
 ]
 
+# ==============================
+# CREAR ESTRUCTURA
+# ==============================
 def create_structure():
     # Crear carpetas
     for folder in folders:
@@ -56,11 +48,11 @@ def create_structure():
     # Crear archivos vacíos
     for file in files:
         dir_name = os.path.dirname(file)
-        if dir_name:  # ← CLAVE: solo si hay directorio
+        if dir_name:
             os.makedirs(dir_name, exist_ok=True)
 
         if not os.path.exists(file):
-            open(file, "w").close()
+            open(file, "w", encoding="utf-8").close()
 
     print("✅ Estructura del proyecto CNN creada correctamente")
 

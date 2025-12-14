@@ -1,14 +1,15 @@
-# Entorno virtual
+# Entornos
 .venv/
+__pycache__/
 
-# Datos e imágenes
+# Datos
 data/raw/
 data/processed/
 data/split/
 
-# Modelos entrenados
+# Modelos
 models/*.h5
 
-# Cache
-__pycache__/
-*.pyc
+# Sistema
+.DS_Store
+Thumbs.db
